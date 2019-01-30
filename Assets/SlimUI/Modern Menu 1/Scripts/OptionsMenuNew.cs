@@ -49,6 +49,11 @@ public class OptionsMenuNew : MonoBehaviour {
 	private float sliderValueYSensitivity = 0.0f;
 	private float sliderValueSmoothing = 0.0f;
 
+    // Adjust parameters
+
+    public string eventName;
+    public string[] parameters;
+
 	public void  Start (){
 		// check difficulty
 		if(PlayerPrefs.GetInt("NormalDifficulty") == 1){
@@ -386,4 +391,9 @@ public class OptionsMenuNew : MonoBehaviour {
 		texturemedtextLINE.gameObject.SetActive(false);
 		texturehightextLINE.gameObject.SetActive(true);
 	}
+    
+    public void CallEveny (string name, string[] param)
+    {
+        Debug.Log(name+param);
+    }
 }
