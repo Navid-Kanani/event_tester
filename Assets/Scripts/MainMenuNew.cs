@@ -65,12 +65,18 @@ public class MainMenuNew : MonoBehaviour {
 	[Tooltip("Highlight Image for when GENERAL Sub-Tab is selected in KEY BINDINGS")]
 	public GameObject lineGeneral;
 
+    [Header("Medrick Part")]
     public int sessionNumber;
     public int playerLevel;
     public int gemInventory;
     public int coinInventory;
 
-	void Start()
+    public GameObject tutorialStepText;
+    public int tutorialStep;
+    public int maxTutorialStep;
+
+
+    void Start()
     {
         sessionNumber = PlayerPrefs.GetInt("session", 0);
         sessionNumber++;
@@ -81,17 +87,20 @@ public class MainMenuNew : MonoBehaviour {
         coinInventory = PlayerPrefs.GetInt("coinInventory", 0);
 
 
-        AdjustEvent app_open = new AdjustEvent("ksgr8s");
-        app_open.addPartnerParameter("session", sessionNumber.ToString());
-        app_open.addPartnerParameter("page_type", "surface");
-        app_open.addPartnerParameter("page_name", "main_menu");
-        app_open.addPartnerParameter("activity_type", "surface");
-        app_open.addPartnerParameter("activity_name", "app_start");
-        app_open.addPartnerParameter("player_level", playerLevel.ToString());
-        app_open.addPartnerParameter("currency1_inv", gemInventory.ToString());
-        app_open.addPartnerParameter("currency2_inv", coinInventory.ToString());
+        AdjustEvent app_start = new AdjustEvent("ksgr8s");
+        app_start.addPartnerParameter("session", sessionNumber.ToString());
+        app_start.addPartnerParameter("page_type", "surface");
+        app_start.addPartnerParameter("page_name", "main_menu");
+        app_start.addPartnerParameter("activity_type", "surface");
+        app_start.addPartnerParameter("activity_name", "app_start");
+        app_start.addPartnerParameter("player_level", playerLevel.ToString());
+        app_start.addPartnerParameter("currency1_inv", gemInventory.ToString());
+        app_start.addPartnerParameter("currency2_inv", coinInventory.ToString());
 
-        Adjust.trackEvent(app_open);
+        Adjust.trackEvent(app_start);
+
+        tutorialStep = PlayerPrefs.GetInt("tutorialStep", 0);
+        tutorialStepText.GetComponent<Text>().text = tutorialStep.ToString();
 
         CameraObject = transform.GetComponent<Animator>();
 	}
@@ -103,7 +112,19 @@ public class MainMenuNew : MonoBehaviour {
 		loadGameBtn.gameObject.SetActive(true);
 	}
 
-	public void NewGame(){
+    public void tutorialStepPlus()
+    {
+        tutorialStep = PlayerPrefs.GetInt("tutorialStep", 0);
+        if (tutorialStep == maxTutorialStep)
+        {
+            return;
+        }
+        tutorialStep++;
+        PlayerPrefs.SetInt("tutorialStep", tutorialStep);
+        tutorialStepText.GetComponent<Text>().text = tutorialStep.ToString();
+    }
+
+    public void NewGame(){
 		if(sceneName != ""){
 			SceneManager.LoadScene(sceneName, LoadSceneMode.Single);
 		}

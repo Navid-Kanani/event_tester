@@ -91,12 +91,12 @@ public class OptionsMenuNew : MonoBehaviour {
 		}
 
 		// check tool tip value
-		if(PlayerPrefs.GetInt("ToolTips")==0){
-			tooltipstext.GetComponent<Text>().text = "off";
-		}
-		else{
-			tooltipstext.GetComponent<Text>().text = "on";
-		}
+		//if(PlayerPrefs.GetInt("ToolTips")==0){
+		//	tooltipstext.GetComponent<Text>().text = "off";
+		//}
+		//else{
+		//	tooltipstext.GetComponent<Text>().text = "on";
+		//}
 
 		// check shadow distance/enabled
 		if(PlayerPrefs.GetInt("Shadows") == 0){
@@ -242,14 +242,14 @@ public class OptionsMenuNew : MonoBehaviour {
 
 	// show tool tips like: 'How to Play' control pop ups
 	public void  ToolTips (){
-		if(PlayerPrefs.GetInt("ToolTips")==0){
-			PlayerPrefs.SetInt("ToolTips",1);
-			tooltipstext.GetComponent<Text>().text = "on";
-		}
-		else if(PlayerPrefs.GetInt("ToolTips")==1){
-			PlayerPrefs.SetInt("ToolTips",0);
-			tooltipstext.GetComponent<Text>().text = "off";
-		}
+		//if(PlayerPrefs.GetInt("ToolTips")==0){
+		//	PlayerPrefs.SetInt("ToolTips",1);
+		//	tooltipstext.GetComponent<Text>().text = "on";
+		//}
+		//else if(PlayerPrefs.GetInt("ToolTips")==1){
+		//	PlayerPrefs.SetInt("ToolTips",0);
+		//	tooltipstext.GetComponent<Text>().text = "off";
+		//}
 	}
 
 	public void  NormalDifficulty (){
