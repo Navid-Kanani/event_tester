@@ -65,8 +65,35 @@ public class MainMenuNew : MonoBehaviour {
 	[Tooltip("Highlight Image for when GENERAL Sub-Tab is selected in KEY BINDINGS")]
 	public GameObject lineGeneral;
 
-	void Start(){
-		CameraObject = transform.GetComponent<Animator>();
+    public int sessionNumber;
+    public int playerLevel;
+    public int gemInventory;
+    public int coinInventory;
+
+	void Start()
+    {
+        sessionNumber = PlayerPrefs.GetInt("session", 0);
+        sessionNumber++;
+        PlayerPrefs.SetInt("session", sessionNumber);
+
+        playerLevel = PlayerPrefs.GetInt("playerLevel", 0);
+        gemInventory = PlayerPrefs.GetInt("gemInventory", 0);
+        coinInventory = PlayerPrefs.GetInt("coinInventory", 0);
+
+
+        AdjustEvent app_open = new AdjustEvent("ksgr8s");
+        app_open.addPartnerParameter("session", sessionNumber.ToString());
+        app_open.addPartnerParameter("page_type", "surface");
+        app_open.addPartnerParameter("page_name", "main_menu");
+        app_open.addPartnerParameter("activity_type", "surface");
+        app_open.addPartnerParameter("activity_name", "app_start");
+        app_open.addPartnerParameter("player_level", playerLevel.ToString());
+        app_open.addPartnerParameter("currency1_inv", gemInventory.ToString());
+        app_open.addPartnerParameter("currency2_inv", coinInventory.ToString());
+
+        Adjust.trackEvent(app_open);
+
+        CameraObject = transform.GetComponent<Animator>();
 	}
 
 	public void  PlayCampaign (){

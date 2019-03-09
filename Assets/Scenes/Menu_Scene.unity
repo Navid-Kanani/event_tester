@@ -237,6 +237,10 @@ PrefabInstance:
       propertyPath: appToken
       value: garqp4hbt0jk
       objectReference: {fileID: 0}
+    - target: {fileID: 11482148, guid: a3267720e82aa41c1a05ab29824902b4, type: 3}
+      propertyPath: startManually
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a3267720e82aa41c1a05ab29824902b4, type: 3}
 --- !u!1001 &4021827012328342780
@@ -343,6 +347,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1075681240387016, guid: e4a44daee2cdaf941b4fcca5737bde8c, type: 3}
+      propertyPath: m_Name
+      value: Btn_TutorialStep
+      objectReference: {fileID: 0}
     - target: {fileID: 1163270525903878, guid: e4a44daee2cdaf941b4fcca5737bde8c, type: 3}
       propertyPath: m_IsActive
       value: 0
@@ -355,9 +363,32 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1414452869098540, guid: e4a44daee2cdaf941b4fcca5737bde8c, type: 3}
+      propertyPath: m_Name
+      value: Btn_TutorialFinish
+      objectReference: {fileID: 0}
     - target: {fileID: 1925085254355580, guid: e4a44daee2cdaf941b4fcca5737bde8c, type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1925085254355580, guid: e4a44daee2cdaf941b4fcca5737bde8c, type: 3}
+      propertyPath: m_Name
+      value: Btn_TutorialStart
+      objectReference: {fileID: 0}
+    - target: {fileID: 114662531137819720, guid: e4a44daee2cdaf941b4fcca5737bde8c,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114662531137819720, guid: e4a44daee2cdaf941b4fcca5737bde8c,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114662531137819720, guid: e4a44daee2cdaf941b4fcca5737bde8c,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e4a44daee2cdaf941b4fcca5737bde8c, type: 3}
