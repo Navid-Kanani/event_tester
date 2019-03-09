@@ -1,11 +1,13 @@
 ﻿using UnityEngine;
 using System.Collections;
 using UnityEngine.UI;
+using com.adjust.sdk;
+
 
 public class OptionsMenuNew : MonoBehaviour {
 
 	// toggle buttons
-	public GameObject fullscreentext;
+	//public GameObject fullscreentext;
 	public GameObject shadowofftext;
 	public GameObject shadowofftextLINE;
 	public GameObject shadowlowtext;
@@ -20,9 +22,9 @@ public class OptionsMenuNew : MonoBehaviour {
 	public GameObject difficultyhardcoretextLINE;
 	public GameObject cameraeffectstext;
 	public GameObject invertmousetext;
-	public GameObject vsynctext;
-	public GameObject motionblurtext;
-	public GameObject ambientocclusiontext;
+	//public GameObject vsynctext;
+	//public GameObject motionblurtext;
+	//public GameObject ambientocclusiontext;
 	public GameObject texturelowtext;
 	public GameObject texturelowtextLINE;
 	public GameObject texturemedtext;
@@ -57,8 +59,8 @@ public class OptionsMenuNew : MonoBehaviour {
 	public void  Start (){
 		// check difficulty
 		if(PlayerPrefs.GetInt("NormalDifficulty") == 1){
-			difficultynormaltextLINE.gameObject.SetActive(true);
-			difficultyhardcoretextLINE.gameObject.SetActive(false);
+//			difficultynormaltextLINE.gameObject.SetActive(true);
+//			difficultyhardcoretextLINE.gameObject.SetActive(false);
 		}
 		else
 		{
@@ -67,17 +69,17 @@ public class OptionsMenuNew : MonoBehaviour {
 		}
 
 		// check slider values
-		musicSlider.GetComponent<Slider>().value = PlayerPrefs.GetFloat("MusicVolume");
+//		musicSlider.GetComponent<Slider>().value = PlayerPrefs.GetFloat("MusicVolume");
 		sensitivityXSlider.GetComponent<Slider>().value = PlayerPrefs.GetFloat("XSensitivity");
 		sensitivityYSlider.GetComponent<Slider>().value = PlayerPrefs.GetFloat("YSensitivity");
 		mouseSmoothSlider.GetComponent<Slider>().value = PlayerPrefs.GetFloat("MouseSmoothing");
 
 		// check full screen
 		if(Screen.fullScreen == true){
-			fullscreentext.GetComponent<Text>().text = "on";
+			//fullscreentext.GetComponent<Text>().text = "on";
 		}
 		else if(Screen.fullScreen == false){
-			fullscreentext.GetComponent<Text>().text = "off";
+			//fullscreentext.GetComponent<Text>().text = "off";
 		}
 
 		// check hud value
@@ -130,10 +132,10 @@ public class OptionsMenuNew : MonoBehaviour {
 
 		// check vsync
 		if(QualitySettings.vSyncCount == 0){
-			vsynctext.GetComponent<Text>().text = "off";
+			//vsynctext.GetComponent<Text>().text = "off";
 		}
 		else if(QualitySettings.vSyncCount == 1){
-			vsynctext.GetComponent<Text>().text = "on";
+			//vsynctext.GetComponent<Text>().text = "on";
 		}
 
 		// check mouse inverse
@@ -146,18 +148,18 @@ public class OptionsMenuNew : MonoBehaviour {
 
 		// check motion blur
 		if(PlayerPrefs.GetInt("MotionBlur")==0){
-			motionblurtext.GetComponent<Text>().text = "off";
+			//motionblurtext.GetComponent<Text>().text = "off";
 		}
 		else if(PlayerPrefs.GetInt("MotionBlur")==1){
-			motionblurtext.GetComponent<Text>().text = "on";
+			//motionblurtext.GetComponent<Text>().text = "on";
 		}
 
 		// check ambient occlusion
 		if(PlayerPrefs.GetInt("AmbientOcclusion")==0){
-			ambientocclusiontext.GetComponent<Text>().text = "off";
+			//ambientocclusiontext.GetComponent<Text>().text = "off";
 		}
 		else if(PlayerPrefs.GetInt("AmbientOcclusion")==1){
-			ambientocclusiontext.GetComponent<Text>().text = "on";
+			//ambientocclusiontext.GetComponent<Text>().text = "on";
 		}
 
 		// check texture quality
@@ -191,7 +193,7 @@ public class OptionsMenuNew : MonoBehaviour {
 	}
 
 	public void  Update (){
-		sliderValue = musicSlider.GetComponent<Slider>().value;
+//		sliderValue = musicSlider.GetComponent<Slider>().value;
 		sliderValueXSensitivity = sensitivityXSlider.GetComponent<Slider>().value;
 		sliderValueYSensitivity = sensitivityYSlider.GetComponent<Slider>().value;
 		sliderValueSmoothing = mouseSmoothSlider.GetComponent<Slider>().value;
@@ -201,10 +203,10 @@ public class OptionsMenuNew : MonoBehaviour {
 		Screen.fullScreen = !Screen.fullScreen;
 
 		if(Screen.fullScreen == true){
-			fullscreentext.GetComponent<Text>().text = "on";
+			//fullscreentext.GetComponent<Text>().text = "on";
 		}
 		else if(Screen.fullScreen == false){
-			fullscreentext.GetComponent<Text>().text = "off";
+			//fullscreentext.GetComponent<Text>().text = "off";
 		}
 	}
 
@@ -307,11 +309,11 @@ public class OptionsMenuNew : MonoBehaviour {
 	public void  vsync (){
 		if(QualitySettings.vSyncCount == 0){
 			QualitySettings.vSyncCount = 1;
-			vsynctext.GetComponent<Text>().text = "on";
+			//vsynctext.GetComponent<Text>().text = "on";
 		}
 		else if(QualitySettings.vSyncCount == 1){
 			QualitySettings.vSyncCount = 0;
-			vsynctext.GetComponent<Text>().text = "off";
+			//vsynctext.GetComponent<Text>().text = "off";
 		}
 	}
 
@@ -329,22 +331,22 @@ public class OptionsMenuNew : MonoBehaviour {
 	public void  MotionBlur (){
 		if(PlayerPrefs.GetInt("MotionBlur")==0){
 			PlayerPrefs.SetInt("MotionBlur",1);
-			motionblurtext.GetComponent<Text>().text = "on";
+			//motionblurtext.GetComponent<Text>().text = "on";
 		}
 		else if(PlayerPrefs.GetInt("MotionBlur")==1){
 			PlayerPrefs.SetInt("MotionBlur",0);
-			motionblurtext.GetComponent<Text>().text = "off";
+			//motionblurtext.GetComponent<Text>().text = "off";
 		}
 	}
 
 	public void  AmbientOcclusion (){
 		if(PlayerPrefs.GetInt("AmbientOcclusion")==0){
 			PlayerPrefs.SetInt("AmbientOcclusion",1);
-			ambientocclusiontext.GetComponent<Text>().text = "on";
+			//ambientocclusiontext.GetComponent<Text>().text = "on";
 		}
 		else if(PlayerPrefs.GetInt("AmbientOcclusion")==1){
 			PlayerPrefs.SetInt("AmbientOcclusion",0);
-			ambientocclusiontext.GetComponent<Text>().text = "off";
+			//ambientocclusiontext.GetComponent<Text>().text = "off";
 		}
 	}
 

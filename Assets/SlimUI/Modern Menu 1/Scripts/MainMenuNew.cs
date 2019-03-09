@@ -2,6 +2,8 @@
 using System.Collections;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using com.adjust.sdk;
+
 
 public class MainMenuNew : MonoBehaviour {
 
